@@ -15,3 +15,8 @@ create table if not exists arts(id bigint generated always as identity primary k
 alter table films enable row level security;alter table arts enable row level security;
 create policy "public read" on films for select using(true);
 create policy "public read" on arts for select using(true);
+
+-- Image-led pages: key art, screenshots and a featured flag for the homepage banner.
+alter table games add column if not exists banner text;
+alter table games add column if not exists screenshots text[] default '{}';
+alter table games add column if not exists featured boolean default false;

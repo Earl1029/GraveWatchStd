@@ -19,7 +19,10 @@
     "jhon-carlo-paglomutan",
     "allan-dave-pocdol",
     "yesseniah-hernandez"
-   ]
+   ],
+   "banner": "",
+   "screenshots": [],
+   "featured": true
   },
   {
    "slug": "blitz-tag",
@@ -42,7 +45,10 @@
     "noah-john-morada",
     "nadezhda-penamante",
     "allan-dave-pocdol"
-   ]
+   ],
+   "banner": "",
+   "screenshots": [],
+   "featured": false
   }
  ],
  "members": [

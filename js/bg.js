@@ -1,7 +1,7 @@
 /* Violet particle-field background (vanilla port of the ASMR static background).
    Fixed behind page content; particles gather and swirl around the pointer. */
 (function(){
-if(document.body.dataset.page==='index')return; // homepage keeps its hero shader
+// On the homepage the hero shader sits on top; the particles show below it.
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const cv=document.createElement('canvas');
 cv.id='asmr';cv.setAttribute('aria-hidden','true');
