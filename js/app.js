@@ -13,9 +13,9 @@ const grid=(a,f,e)=>a.length?`<div class="grid">${a.map(f).join('')}</div>`:`<p 
 (async()=>{
   const P=document.body.dataset.page,slug=new URLSearchParams(location.search).get('slug'),A=$('#app');
   document.querySelectorAll('nav a').forEach(a=>{if(a.dataset.p===P||(P==='game'&&a.dataset.p==='games')||(P==='member'&&a.dataset.p==='team'))a.classList.add('on')});
-  if(['audio','films','about'].includes(P)&&P!=='audio')return;
-  const [G,M]=P==='audio'?[[],[]]:await Promise.all([load('games'),load('members')]);
-  if(P==='index')A.innerHTML=`<section class="hero"><h1>Gravewatch Studio</h1><p>TODO: studio tagline. Games, sound and stories from the underground.</p><a class="btn" href="games.html">Browse games</a><a class="btn alt" href="team.html">Meet the team</a></section><h2>Games</h2>${grid(G,gameCard,'No games yet.')}`;
+  if(['films','about','press'].includes(P))return;
+  const [G,M]=['audio','devlog'].includes(P)?[[],[]]:await Promise.all([load('games'),load('members')]);
+  if(P==='index')A.innerHTML=`<h2>Games</h2>${grid(G,gameCard,'No games yet.')}`;
   if(P==='games')A.innerHTML=`<h2>Games</h2>${grid(G,gameCard,'No games yet.')}`;
   if(P==='team')A.innerHTML=`<h2>Team</h2>${grid(M.filter(m=>!m.former),memCard,'No members yet.')}<h2>Former members</h2>${grid(M.filter(m=>m.former),memCard,'None listed.')}`;
   if(P==='game'){
@@ -29,6 +29,11 @@ const grid=(a,f,e)=>a.length?`<div class="grid">${a.map(f).join('')}</div>`:`<p 
     document.title=m.name+' | Gravewatch Studio';
     const gs=G.filter(g=>(g.credits||[]).includes(m.slug)),L=m.links||{};
     A.innerHTML=`<div class="gh">${m.photo?`<img src="${esc(m.photo)}" alt="${esc(m.name)}">`:`<div class="ph" style="max-width:240px">${esc(m.name[0])}</div>`}<div><h1>${esc(m.name)}</h1><p>${esc(m.role)} ${m.former?'<span class="tag">Former member</span>':''}</p><p>${esc(m.bio)}</p>${m.cv_url?`<a class="btn" href="${esc(m.cv_url)}">View CV</a>`:''}${Object.entries(L).map(([k,v])=>`<a class="btn alt" href="${esc(v)}">${esc(k)}</a>`).join('')}</div></div><h2>Credited on</h2>${grid(gs,gameCard,'No games yet.')}`;
+  }
+  if(P==='devlog'){
+    const S=await load('posts');S.sort((a,b)=>b.date.localeCompare(a.date));const tg=['All',...new Set(S.map(p=>p.tag))];let cur='All';
+    const draw=()=>{A.innerHTML=`<h2>Devlog</h2><div class="filters">${tg.map(t=>`<button class="${t===cur?'on':''}" data-t="${esc(t)}">${esc(t)}</button>`).join('')}</div>${S.filter(p=>cur==='All'||p.tag===cur).map(p=>`<article class="post"><div class="meta"><span class="tag">${esc(p.tag)}</span>${fmt(p.date)}</div><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p></article>`).join('')||'<p class="empty">No posts yet.</p>'}`;
+      A.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{cur=b.dataset.t;draw()})};draw();
   }
   if(P==='audio'){
     const T=await load('audio_tracks'),K={song:'Songs',sound:'Sounds',sfx:'Sound effects'};let cur='song';

@@ -6,3 +6,4 @@ create policy "public read" on games for select using(true);
 create policy "public read" on members for select using(true);
 create policy "public read" on audio_tracks for select using(true);
 -- Import the rows from data/data.json via the Table Editor, then paste project URL + anon key into js/app.js.
+create table posts(id bigint generated always as identity primary key,date date,tag text,title text,body text);alter table posts enable row level security;create policy "public read" on posts for select using(true);

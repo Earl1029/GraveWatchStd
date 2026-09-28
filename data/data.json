@@ -1,14 +1,161 @@
-{"games":[
-{"slug":"ateotl","title":"At the End of the Line","status":"In production","tagline":"Ride the train. Burn the dead. Reach the end of the line.","description":"A first-person survival horror set on the floating island of High Mesa. Drive a mobile-fortress train along a 12 km ruined track, scavenge by day, survive demon sieges by night, and turn fallen enemies into fuel and materials.","version":"","release_date":null,"genre":"Action FPS / Survival / Horror","engine":"Unity","itch_url":"","steam_url":"","logo":"","credits":["earl-john-ebalde","ryan-bacalangco","jhon-carlo-paglomutan","allan-dave-pocdol","yesseniah-hernandez"]},
-{"slug":"blitz-tag","title":"Blitz Tag","status":"Released","tagline":"Neon parkour tag. Two teams, twenty seconds, no hesitation.","description":"A 2v2 LAN multiplayer parkour tag game set in the near-future metropolis of Neo-Veridia. Vault, slide and pivot around poles to catch or evade your rival. Fastest tag breaks ties.","version":"BlitzTag.v1.8.3","release_date":"2026-05-01","genre":"Sports / Platformer / Multiplayer","engine":"Unity (Fish-Net)","itch_url":"https://gravewatch-studio.itch.io/blitztag","steam_url":"","logo":"assets/blitztag-logo.png","credits":["ryan-bacalangco","john-matthew-donato","earl-john-ebalde","arr-chile-evangelista","noah-john-morada","nadezhda-penamante","allan-dave-pocdol"]}],
-"members":[
-{"slug":"earl-john-ebalde","name":"Earl John Ebalde","role":"Project Manager, Researcher, Audio Lead","former":false,"bio":"TODO: short bio.","photo":"","cv_url":"","links":{}},
-{"slug":"ryan-bacalangco","name":"Ryan Bacalangco","role":"Game Programmer, Level Designer","former":false,"bio":"TODO: short bio.","photo":"","cv_url":"","links":{}},
-{"slug":"jhon-carlo-paglomutan","name":"Jhon Carlo Paglomutan","role":"Logo Artist, Colorist, UI Designer","former":false,"bio":"TODO: short bio.","photo":"","cv_url":"","links":{}},
-{"slug":"allan-dave-pocdol","name":"Allan Dave Pocdol","role":"Lead 3D Digital Artist, Game Designer","former":false,"bio":"TODO: short bio.","photo":"","cv_url":"","links":{}},
-{"slug":"yesseniah-hernandez","name":"Yesseniah Hernandez","role":"Creative Production Crew","former":false,"bio":"TODO: short bio.","photo":"","cv_url":"","links":{}},
-{"slug":"nadezhda-penamante","name":"Nadezhda Peñamante","role":"Programmer, Level Designer","former":true,"bio":"TODO: short bio.","photo":"","cv_url":"","links":{}},
-{"slug":"john-matthew-donato","name":"John Matthew Donato","role":"3D Graphic Artist, Textures","former":true,"bio":"TODO: short bio.","photo":"","cv_url":"","links":{}},
-{"slug":"noah-john-morada","name":"Noah John Morada","role":"UI and 2D Artist","former":true,"bio":"TODO: short bio.","photo":"","cv_url":"","links":{}},
-{"slug":"arr-chile-evangelista","name":"Arr Chile Evangelista","role":"Creative Production Crew","former":true,"bio":"TODO: short bio.","photo":"","cv_url":"","links":{}}],
-"audio_tracks":[]}
+{
+ "games": [
+  {
+   "slug": "ateotl",
+   "title": "At the End of the Line",
+   "status": "In production",
+   "tagline": "Ride the train. Burn the dead. Reach the end of the line.",
+   "description": "A first-person survival horror set on the floating island of High Mesa. Drive a mobile-fortress train along a 12 km ruined track, scavenge by day, survive demon sieges by night, and turn fallen enemies into fuel and materials.",
+   "version": "",
+   "release_date": null,
+   "genre": "Action FPS / Survival / Horror",
+   "engine": "Unity",
+   "itch_url": "",
+   "steam_url": "",
+   "logo": "",
+   "credits": [
+    "earl-john-ebalde",
+    "ryan-bacalangco",
+    "jhon-carlo-paglomutan",
+    "allan-dave-pocdol",
+    "yesseniah-hernandez"
+   ]
+  },
+  {
+   "slug": "blitz-tag",
+   "title": "Blitz Tag",
+   "status": "Released",
+   "tagline": "Neon parkour tag. Two teams, twenty seconds, no hesitation.",
+   "description": "A 2v2 LAN multiplayer parkour tag game set in the near-future metropolis of Neo-Veridia. Vault, slide and pivot around poles to catch or evade your rival. Fastest tag breaks ties.",
+   "version": "BlitzTag.v1.8.3",
+   "release_date": "2026-05-01",
+   "genre": "Sports / Platformer / Multiplayer",
+   "engine": "Unity (Fish-Net)",
+   "itch_url": "https://gravewatch-studio.itch.io/blitztag",
+   "steam_url": "",
+   "logo": "assets/blitztag-logo.png",
+   "credits": [
+    "ryan-bacalangco",
+    "john-matthew-donato",
+    "earl-john-ebalde",
+    "arr-chile-evangelista",
+    "noah-john-morada",
+    "nadezhda-penamante",
+    "allan-dave-pocdol"
+   ]
+  }
+ ],
+ "members": [
+  {
+   "slug": "earl-john-ebalde",
+   "name": "Earl John Ebalde",
+   "role": "Project Manager, Researcher, Audio Lead",
+   "former": false,
+   "bio": "TODO: short bio.",
+   "photo": "",
+   "cv_url": "",
+   "links": {}
+  },
+  {
+   "slug": "ryan-bacalangco",
+   "name": "Ryan Bacalangco",
+   "role": "Game Programmer, Level Designer",
+   "former": false,
+   "bio": "TODO: short bio.",
+   "photo": "",
+   "cv_url": "",
+   "links": {}
+  },
+  {
+   "slug": "jhon-carlo-paglomutan",
+   "name": "Jhon Carlo Paglomutan",
+   "role": "Logo Artist, Colorist, UI Designer",
+   "former": false,
+   "bio": "TODO: short bio.",
+   "photo": "",
+   "cv_url": "",
+   "links": {}
+  },
+  {
+   "slug": "allan-dave-pocdol",
+   "name": "Allan Dave Pocdol",
+   "role": "Lead 3D Digital Artist, Game Designer",
+   "former": false,
+   "bio": "TODO: short bio.",
+   "photo": "",
+   "cv_url": "",
+   "links": {}
+  },
+  {
+   "slug": "yesseniah-hernandez",
+   "name": "Yesseniah Hernandez",
+   "role": "Creative Production Crew",
+   "former": false,
+   "bio": "TODO: short bio.",
+   "photo": "",
+   "cv_url": "",
+   "links": {}
+  },
+  {
+   "slug": "nadezhda-penamante",
+   "name": "Nadezhda Peñamante",
+   "role": "Programmer, Level Designer",
+   "former": true,
+   "bio": "TODO: short bio.",
+   "photo": "",
+   "cv_url": "",
+   "links": {}
+  },
+  {
+   "slug": "john-matthew-donato",
+   "name": "John Matthew Donato",
+   "role": "3D Graphic Artist, Textures",
+   "former": true,
+   "bio": "TODO: short bio.",
+   "photo": "",
+   "cv_url": "",
+   "links": {}
+  },
+  {
+   "slug": "noah-john-morada",
+   "name": "Noah John Morada",
+   "role": "UI and 2D Artist",
+   "former": true,
+   "bio": "TODO: short bio.",
+   "photo": "",
+   "cv_url": "",
+   "links": {}
+  },
+  {
+   "slug": "arr-chile-evangelista",
+   "name": "Arr Chile Evangelista",
+   "role": "Creative Production Crew",
+   "former": true,
+   "bio": "TODO: short bio.",
+   "photo": "",
+   "cv_url": "",
+   "links": {}
+  }
+ ],
+ "audio_tracks": [],
+ "posts": [
+  {
+   "date": "2026-09-28",
+   "tag": "Milestone",
+   "title": "Gravewatch has a home on the web",
+   "body": "Our studio site is live. This is where devlogs, builds, and press material will live from now on."
+  },
+  {
+   "date": "2026-09-10",
+   "tag": "Audio",
+   "title": "Building the sound of a broken machine world",
+   "body": "How we layered mechanical loops, steam, and low ambience to make the world feel alive and threatening."
+  },
+  {
+   "date": "2026-08-20",
+   "tag": "Tech",
+   "title": "Setting up the first-person controller",
+   "body": "Notes on movement feel, camera tuning, and the tech choices behind the prototype."
+  }
+ ]
+}
