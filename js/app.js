@@ -1,6 +1,8 @@
 // Supabase config: paste project URL + anon (public) key. Leave empty to use data/data.json.
 const CFG={url:'',key:''};
 const $=s=>document.querySelector(s);
+const nf=document.getElementById('news');
+if(nf)nf.addEventListener('submit',e=>{e.preventDefault();$('#newsmsg').textContent='Email updates are not open yet. Follow us on itch.io for now.';nf.reset()});
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=d=>d?new Date(d).toLocaleDateString('en',{year:'numeric',month:'long',day:'numeric'}):'To be announced';
 async function load(t){
@@ -9,6 +11,9 @@ async function load(t){
 }
 const gameCard=g=>`<a class="card" href="game.html?slug=${esc(g.slug)}">${g.logo?`<img src="${esc(g.logo)}" alt="${esc(g.title)} logo">`:''}<h3>${esc(g.title)}</h3><p>${esc(g.tagline)}</p><span class="tag">${esc(g.status)}</span></a>`;
 const memCard=m=>`<a class="card member" href="member.html?slug=${esc(m.slug)}">${m.photo?`<img src="${esc(m.photo)}" alt="${esc(m.name)}">`:`<div class="ph" aria-hidden="true">${esc(m.name.split(' ').map(w=>w[0]).slice(0,2).join(''))}</div>`}<h3>${esc(m.name)}</h3><p>${esc(m.role)}</p>${m.former?'<span class="tag">Former member</span>':''}</a>`;
+const ini=n=>n.split(' ').map(w=>w[0]).slice(0,2).join('');
+const accItem=m=>`<a class="acc-item" href="member.html?slug=${esc(m.slug)}">${m.photo?`<img src="${esc(m.photo)}" alt="">`:`<span class="acc-ph" aria-hidden="true">${esc(ini(m.name))}</span>`}<span class="acc-cap"><strong>${esc(m.name)}</strong><span>${esc(m.role)}</span></span></a>`;
+const acc=a=>a.length?`<div class="acc">${a.map(accItem).join('')}</div>`:'<p class="empty">No members yet.</p>';
 const grid=(a,f,e)=>a.length?`<div class="grid">${a.map(f).join('')}</div>`:`<p class="empty">${e}</p>`;
 (async()=>{
   const P=document.body.dataset.page,slug=new URLSearchParams(location.search).get('slug'),A=$('#app');
@@ -17,12 +22,12 @@ const grid=(a,f,e)=>a.length?`<div class="grid">${a.map(f).join('')}</div>`:`<p 
   const [G,M]=['audio','devlog'].includes(P)?[[],[]]:await Promise.all([load('games'),load('members')]);
   if(P==='index')A.innerHTML=`<h2>Games</h2>${grid(G,gameCard,'No games yet.')}`;
   if(P==='games')A.innerHTML=`<h2>Games</h2>${grid(G,gameCard,'No games yet.')}`;
-  if(P==='team')A.innerHTML=`<h2>Team</h2>${grid(M.filter(m=>!m.former),memCard,'No members yet.')}<h2>Former members</h2>${grid(M.filter(m=>m.former),memCard,'None listed.')}`;
+  if(P==='team')A.innerHTML=`<h2>Team</h2>${acc(M.filter(m=>!m.former))}<h2>Former members</h2>${grid(M.filter(m=>m.former),memCard,'None listed.')}`;
   if(P==='game'){
     const g=G.find(x=>x.slug===slug);if(!g){A.innerHTML='<p class="empty">Game not found. <a href="games.html">Back to games</a></p>';return}
     document.title=g.title+' | Gravewatch Studio';
     const cr=(g.credits||[]).map(s=>M.find(m=>m.slug===s)).filter(Boolean);
-    A.innerHTML=`<div class="gh">${g.logo?`<img src="${esc(g.logo)}" alt="${esc(g.title)} logo">`:`<h1>${esc(g.title)}</h1>`}<div><span class="tag">${esc(g.status)}</span><p>${esc(g.tagline)}</p>${g.itch_url?`<a class="btn" href="${esc(g.itch_url)}">Play on itch.io</a>`:''}${g.steam_url?`<a class="btn alt" href="${esc(g.steam_url)}">Wishlist on Steam</a>`:'<span class="tag">Steam page coming soon</span>'}</div></div><h2>About</h2><p>${esc(g.description)}</p><dl><dt>Version</dt><dd>${esc(g.version||'In development')}</dd><dt>Release</dt><dd>${fmt(g.release_date)}</dd><dt>Genre</dt><dd>${esc(g.genre)}</dd><dt>Engine</dt><dd>${esc(g.engine)}</dd></dl><h2>Credits</h2>${grid(cr,memCard,'Credits coming soon.')}`;
+    A.innerHTML=`<div class="gh">${g.logo?`<img src="${esc(g.logo)}" alt="${esc(g.title)} logo">`:`<h1>${esc(g.title)}</h1>`}<div><span class="tag">${esc(g.status)}</span><p>${esc(g.tagline)}</p>${g.itch_url?`<a class="btn" href="${esc(g.itch_url)}">Play on itch.io</a>`:''}${g.steam_url?`<a class="btn alt" href="${esc(g.steam_url)}">Wishlist on Steam</a>`:''}</div></div><h2>About</h2><p>${esc(g.description)}</p><dl><dt>Version</dt><dd>${esc(g.version||'In development')}</dd><dt>Release</dt><dd>${fmt(g.release_date)}</dd><dt>Genre</dt><dd>${esc(g.genre)}</dd><dt>Engine</dt><dd>${esc(g.engine)}</dd></dl><h2>Credits</h2>${grid(cr,memCard,'Credits coming soon.')}`;
   }
   if(P==='member'){
     const m=M.find(x=>x.slug===slug);if(!m){A.innerHTML='<p class="empty">Member not found. <a href="team.html">Back to team</a></p>';return}

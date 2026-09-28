@@ -49,7 +49,7 @@
   {
    "slug": "earl-john-ebalde",
    "name": "Earl John Ebalde",
-   "role": "Project Manager, Researcher, Audio Lead",
+   "role": "Sound Designer, Project Manager, Researcher",
    "former": false,
    "bio": "TODO: short bio.",
    "photo": "",
@@ -59,7 +59,7 @@
   {
    "slug": "ryan-bacalangco",
    "name": "Ryan Bacalangco",
-   "role": "Game Programmer, Level Designer",
+   "role": "Level Designer, Lead Programmer, Researcher",
    "former": false,
    "bio": "TODO: short bio.",
    "photo": "",
@@ -69,7 +69,7 @@
   {
    "slug": "jhon-carlo-paglomutan",
    "name": "Jhon Carlo Paglomutan",
-   "role": "Logo Artist, Colorist, UI Designer",
+   "role": "2D Artist, Logo Artist, Theme Colorist",
    "former": false,
    "bio": "TODO: short bio.",
    "photo": "",
@@ -79,7 +79,7 @@
   {
    "slug": "allan-dave-pocdol",
    "name": "Allan Dave Pocdol",
-   "role": "Lead 3D Digital Artist, Game Designer",
+   "role": "3D Artist, Lead Artist, Game Designer, Story Writer",
    "former": false,
    "bio": "TODO: short bio.",
    "photo": "",
@@ -89,7 +89,7 @@
   {
    "slug": "yesseniah-hernandez",
    "name": "Yesseniah Hernandez",
-   "role": "Creative Production Crew",
+   "role": "Production Creative Crew",
    "former": false,
    "bio": "TODO: short bio.",
    "photo": "",
