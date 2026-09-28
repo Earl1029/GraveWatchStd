@@ -88,3 +88,44 @@ footer.wave{position:relative;overflow:hidden;margin-top:4rem;padding:5rem 5vw 1
   .acc-ph{place-items:center start;padding-left:1.2rem;font-size:2rem}
 }
 @media(prefers-reduced-motion:reduce){.wv1,.wv2{animation:none}.acc-item,.acc-cap,.acc-item::before,.acc-item::after{transition:none}}
+
+/* ---- coverflow carousel ---- */
+body{overflow-x:clip}
+.cf{--cf-card:clamp(148px,22vw,260px);width:100vw;margin-inline:calc(50% - 50vw);margin-top:1.5rem}
+.cf-wrap{position:relative}
+.cf-frame{overflow:hidden;padding:2.5rem 0;cursor:grab;touch-action:pan-y;perspective:calc(var(--cf-card)*3);outline:none}
+.cf-frame:active{cursor:grabbing}
+.cf-frame:focus-visible{outline:2px solid var(--mag);outline-offset:-2px}
+.cf-stage{position:relative;height:var(--cf-card);transform-style:preserve-3d;user-select:none;-webkit-user-select:none}
+.cf-card{position:absolute;left:50%;top:0;width:var(--cf-card);aspect-ratio:1;overflow:hidden;border-radius:6px;border:1px solid var(--line);
+  background:linear-gradient(160deg,var(--g1,#1b1140),var(--g2,#6d3ce0));box-shadow:0 20px 40px #000000a0;will-change:transform;transition:border-color .3s,box-shadow .3s}
+.cf-card:nth-child(5n+1){--g1:#1b1140;--g2:#6d3ce0}
+.cf-card:nth-child(5n+2){--g1:#2a0f3d;--g2:#a02ec4}
+.cf-card:nth-child(5n+3){--g1:#0f1740;--g2:#4a5be0}
+.cf-card:nth-child(5n+4){--g1:#2b1240;--g2:#8b3bd8}
+.cf-card:nth-child(5n+5){--g1:#1a0f36;--g2:#c22fa6}
+.cf-card.on{border-color:var(--mag);box-shadow:0 20px 40px #000000a0,0 0 26px #e040fb40}
+.cf-card img{width:100%;height:100%;object-fit:cover;display:block;-webkit-user-drag:none}
+.cf-card.contain img{object-fit:contain;padding:1rem}
+.cf-ph{position:absolute;inset:0;display:grid;place-items:center;font:700 clamp(2rem,5vw,3.4rem) var(--serif);color:#ffffff38}
+.cf-nav{position:absolute;top:50%;z-index:200;transform:translateY(-50%);width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid var(--line);background:#07060db3;color:var(--txt);font:400 1.6rem/1 Inter,sans-serif;cursor:pointer;backdrop-filter:blur(6px);padding:0 0 .15rem}
+.cf-nav:hover{border-color:var(--mag)}
+.cf-nav:focus-visible{outline:2px solid var(--mag);outline-offset:3px}
+.cf-prev{left:3vw}.cf-next{right:3vw}
+.cf-cap{max-width:900px;margin:0 auto;padding:.5rem 20px 0;text-align:center;min-height:9rem}
+.cf-in{animation:cfin .3s ease-out}
+@keyframes cfin{from{opacity:0}to{opacity:1}}
+.cf-cap h3{margin:.5rem 0 .2rem;font-size:1.35rem;color:var(--txt)}
+.cf-sub{margin:0 0 .4rem;color:var(--dim)}
+.cf-text{margin:.4rem auto .8rem;max-width:56ch;color:var(--dim);font-size:.95rem}
+.cf-meta{display:block;max-width:280px;margin:1rem auto;font-size:.85rem}
+.cf-meta div{display:flex;justify-content:space-between;gap:1rem;padding:.35rem 0;border-bottom:1px solid var(--line)}
+.cf-meta dt{color:var(--dim)}.cf-meta dd{margin:0;color:var(--txt);text-align:right}
+.cf-cap audio{width:100%;max-width:420px;margin:.8rem 0}
+.cf-cap .btn{margin:.6rem 0 0}
+.cf-dots{display:flex;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.cf-dots button{width:24px;height:24px;padding:8px;border:0;border-radius:50%;background:var(--txt);background-clip:content-box;opacity:.3;cursor:pointer;transition:opacity .2s}
+.cf-dots button.on{opacity:1}
+.cf-dots button:focus-visible{outline:2px solid var(--mag);outline-offset:1px}
+#app>.tabs,#app>.filters{margin-bottom:.5rem}
+@media(prefers-reduced-motion:reduce){.cf-in{animation:none}.cf-card{transition:none}}
