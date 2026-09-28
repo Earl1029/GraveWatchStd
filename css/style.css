@@ -2,9 +2,9 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;min-height:100vh}
 h1,h2,h3{font-family:var(--serif)}a{color:var(--vio)}
-header{position:sticky;top:0;z-index:5;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;padding:.8rem 5vw;background:#07060db8;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
-.brand{font:700 1.1rem var(--serif);letter-spacing:.14em;color:var(--vio);text-decoration:none;margin-right:auto;text-shadow:0 0 14px #e040fb66}
-nav a{color:var(--dim);text-decoration:none;margin-left:1.2rem;font-size:.92rem;padding:.2rem 0;border-bottom:2px solid transparent}
+header{position:sticky;top:0;z-index:5;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;padding:1.3rem 5vw;background:#07060d99;border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.brand{font:700 1.75rem var(--serif);letter-spacing:.16em;color:var(--vio);text-decoration:none;margin-right:auto;text-shadow:0 0 14px #e040fb66}
+nav a{color:var(--dim);text-decoration:none;margin-left:1.9rem;font-size:1.08rem;padding:.4rem 0;border-bottom:3px solid transparent}
 nav a:hover{color:var(--txt)}nav a.on{color:var(--txt);border-color:var(--mag)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--mag);outline-offset:3px}
 main{max-width:900px;margin:0 auto;padding:3rem 20px 4rem}
@@ -37,7 +37,7 @@ footer{border-top:1px solid var(--line);padding:1.5rem 5vw;color:var(--dim);font
 @media(max-width:560px){dl{grid-template-columns:1fr}nav a{margin-left:.8rem}}
 
 /* ---- wave footer ---- */
-footer.wave{position:relative;overflow:hidden;margin-top:4rem;padding:5rem 5vw 1.5rem;text-align:left;font-size:.95rem;background:linear-gradient(to bottom,var(--bg),#7c3aed1f)}
+footer.wave{position:relative;overflow:hidden;margin-top:4rem;padding:5rem 5vw 1.5rem;text-align:left;font-size:.95rem;background:linear-gradient(to bottom,transparent,#7c3aed1f)}
 .wave-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .wave-bg .wv{position:absolute;bottom:0;left:0;width:7200px;height:420px}
 .wv1{animation:wave 34s linear infinite}.wv2{animation:wave 24s linear infinite reverse}
@@ -129,3 +129,10 @@ body{overflow-x:clip}
 .cf-dots button:focus-visible{outline:2px solid var(--mag);outline-offset:1px}
 #app>.tabs,#app>.filters{margin-bottom:.5rem}
 @media(prefers-reduced-motion:reduce){.cf-in{animation:none}.cf-card{transition:none}}
+
+/* ---- shader page background + bigger navbar on small screens ---- */
+#bg{position:fixed;inset:0;z-index:-1;pointer-events:none}
+#bg canvas{display:block;width:100%;height:100%}
+#bg::after{content:"";position:absolute;inset:0;background:#07060d;opacity:var(--bg-scrim,.62)}
+@media(max-width:900px){.brand{font-size:1.45rem}nav a{margin-left:1.2rem;font-size:1rem}}
+@media(max-width:560px){header{padding:1rem 5vw}.brand{font-size:1.3rem}nav a{margin-left:.9rem;font-size:.95rem}}
